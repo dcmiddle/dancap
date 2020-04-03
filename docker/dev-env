@@ -43,7 +43,7 @@ RUN wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.k
 RUN apt-get update 
 
 # Install SGX common library
-RUN apt-get install -y -q libsgx-enclave-common
+RUN apt-get install -y -q libsgx-enclave-common=2.7.100.4-bionic1
 
 # SGX SDK is installed in /opt/intel directory.
 WORKDIR /opt/intel
@@ -56,7 +56,7 @@ RUN wget https://download.01.org/intel-sgx/sgx-linux/2.7.1/distro/ubuntu18.04-se
  && echo ". /opt/intel/sgxsdk/environment" >> /etc/environment
 
 # Install SGX DCAP SDK
-RUN apt-get install -y -q libsgx-dcap-ql libsgx-dcap-ql-dev
+RUN apt-get install -y -q libsgx-dcap-ql=1.3.100.4-bionic1 libsgx-dcap-ql-dev=1.3.100.4-bionic1
 
 ENV http_proxy=$http_proxy
 ENV https_proxy=$https_proxy
